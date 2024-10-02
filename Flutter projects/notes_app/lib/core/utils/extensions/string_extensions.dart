@@ -1,0 +1,3 @@
+extension EmailValidator on String? {
+
+}
