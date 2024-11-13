@@ -8,8 +8,8 @@ import 'package:market2/features/home/presentation/screen/page_home.dart';
 
 import '../../features/account/presentation/screen/page_account.dart';
 import '../../features/cart/presentation/screen/page_cart.dart';
-import '../../features/explore/presentation/screen/page_explore.dart';
 import '../../features/main/presentation/screen/main_page.dart';
+import '../../features/search/presentation/screen/page_explore.dart';
 
 class MarketRouter {
   final GoRouter _router = GoRouter(

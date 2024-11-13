@@ -1,5 +1,6 @@
 
-part of 'explore_bloc.dart';
+part of 'search_bloc.dart';
+
 
 sealed class ExploreEvent extends Equatable{
   @override

@@ -2,11 +2,11 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:market2/features/marketApi/data/models/market_info/market_categories_dto.dart';
 
-import '../../../api/data/api/category_api.dart';
+import '../../../../api/data/api/category_api.dart';
 
-part 'explore_event.dart';
+part 'search_event.dart';
 
-part 'explore_state.dart';
+part 'search_state.dart';
 
 class ExploreBloc extends Bloc<ExploreEvent, ExploreState> {
   final CategoryApi explorerApi;

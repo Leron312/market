@@ -1,5 +1,5 @@
 
-part of 'explore_bloc.dart';
+part of 'search_bloc.dart';
 
 
 class ExploreState extends Equatable{

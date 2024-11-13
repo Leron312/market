@@ -14,10 +14,10 @@ class MarketCategoriesDto extends Equatable {
   final String? name;
 
   @JsonKey(name: 'image')
-  final List<dynamic>? image;
+  final String? image;
 
-  factory MarketCategoriesDto.fromJson(List<Map<String, dynamic>> json) =>
-      _$MarketCategoriesDtoFromJson(json as Map<String, dynamic>);
+  factory MarketCategoriesDto.fromJson(Map<String, dynamic> json) =>
+      _$MarketCategoriesDtoFromJson(json);
 
   @override
   String toString() {

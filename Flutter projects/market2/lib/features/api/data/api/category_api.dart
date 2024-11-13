@@ -7,7 +7,7 @@ import '../../../marketApi/data/models/market_info/market_categories_dto.dart';
 
 class CategoryApi {
   Future<List<MarketCategoriesDto>?> loadCategories() async {
-    final uri = Uri.parse("${NetworkConstansts.baseUrl}products");
+    final uri = Uri.parse("${NetworkConstansts.baseUrl}categories");
     final response = await http.get(uri);
 
     debugPrint('$response');
