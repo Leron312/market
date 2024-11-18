@@ -9,6 +9,19 @@ class PageCart extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Cart'),
       ),
+      body: const _CartPage(),
     );
   }
 }
+
+class _CartPage extends StatelessWidget {
+  const _CartPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+
+    );
+  }
+}
+

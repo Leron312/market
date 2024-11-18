@@ -15,7 +15,9 @@ class PageExplore extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => ExploreBloc(CategoryApi())..add(CategoryAllDataLoad()),
+          create: (context) =>
+          ExploreBloc(CategoryApi())
+            ..add(CategoryAllDataLoad()),
           lazy: false,
         ),
         BlocProvider(
@@ -42,7 +44,9 @@ class _Bottom extends StatelessWidget implements PreferredSizeWidget {
       children: [
         Row(
           children: [
-            Expanded(child: _SearchBorder()),
+            Expanded(
+              child: _SearchBorder(),
+            ),
             _Search(),
             _ProductsLove(),
             _Notification(),
@@ -66,7 +70,7 @@ class _SearchBorder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final products = context.select((SearchProductBloc bloc) => bloc.state.products);
-    return Padding(
+    return const Padding(
       padding: EdgeInsets.all(8.0),
       child: TextField(
         decoration: InputDecoration(
@@ -93,7 +97,7 @@ class _SearchResult extends StatelessWidget {
       child: ListView.builder(
         itemBuilder: (context, index) {
           return const ListTile(
-            title: Text('text'),
+            title: Text('Category'),
           );
         },
       ),
@@ -180,8 +184,8 @@ class _Body extends StatelessWidget {
         final list = state.categories;
         return GridView.builder(
           itemCount: list.length,
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 0.8),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, childAspectRatio: 0.8),
           itemBuilder: (BuildContext context, int index) {
             return CategoryWidget(category: list[index]);
           },
@@ -201,41 +205,31 @@ class CategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageCategory = category.image ?? [];
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-      child: Column(
-        children: [
-          Container(
-            width: 140,
-            height: 120,
-            child: Image.network(
-               'https://api.lorem.space/image',
-
-
-
-                if (image[0] == "\"" && image[image.length - 1] == "\"") {
-                  image = image.substring(1, image.length - 1);
-                }
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.network(
-                    image,
-                    errorBuilder: (context, e, stackTrace) {
-                      return Image.asset('assets/icons/placeholder.png');
-                    },
-                  ),
-                );
-              },
+    String imageCategory = category.image ?? '';
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        child: Column(
+          children: [
+            SizedBox(
+              width: 140,
+              height: 120,
+              child: Image.network(
+                imageCategory,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.asset('assets/icons/placeholder.png');
+                },
+              ),
             ),
-  ),
-
-          Text(
-            category.name ?? '',
-            overflow: TextOverflow.ellipsis,
-            maxLines: 1,
-          ),
-        ],
+            Text(
+              category.name ?? '',
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 //
-// import '../../../core/di/core_module.dart';
-// import '../presentation/bloc/login_bloc.dart';
+//
+//
+// import 'package:market2/core/di/core_module.dart';
 //
 // void initLoginModule(){
 //
